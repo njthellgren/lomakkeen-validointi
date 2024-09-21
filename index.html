@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekisteröitymislomake</title>
+    <style>
+        body {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        h1, h4 {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .label {
+            margin-right: 10px;
+        }
+
+        .form-group label {
+            width: 90px;
+            margin-right: 10px;
+            text-align: right;
+        }
+
+        .form-container {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container button {
+            font-weight: bold;
+            margin-right: 340px;
+            margin-left: 200px;
+        }
+
+        .form-group input[type="radio"],
+        .form-group input[type="checkbox"] {
+        margin-right: 5px;
+        }
+
+        .form-group.radio-group,
+        .form-group.checkbox-group {
+        display: flex;
+        align-items: center;
+        }
+
+        .radio-label-container,
+        .checkbox-label-container {
+        font-family: 'Times New Roman', Times, serif;
+        display: inline-block;
+        margin-right: 5px;
+        }
+
+        .form-group.textarea-group {
+        display: flex;
+        align-items: flex-start;
+        }
+
+        .form-group.textarea-group label {
+        margin-bottom: 10px; 
+        }
+
+        p {
+            font-size: 12px;
+            font-weight: bold;
+            color: red;
+            margin: 0px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Rekisteröitymislomake</h1>
+        <h4>Siirry kentästä toiseen tab-näppäimellä.</h4>
+        <form id="mainForm">
+            <div class="container">
+                <div class="form-group">
+                    <label for="userInput">Käyttäjä ID:</label>
+                    <input type="text" id="userInput" name="user-id" oninput="checkUserID()">                    
+                    <p id="userIdText" style="margin-left: 10px;"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="passwordInput">Salasana:</label>
+                    <input type="password" id="passwordInput" name="password" oninput="checkPassword()">
+                    <p id="passwordText" style="margin-left: 10px;"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="nameInput">Nimi:</label>
+                    <input type="text" id="nameInput" name="name" style="width:300px;" oninput="checkName()">
+                    <p id="fullNameText" style="margin-left: 10px;"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="addressInput">Osoite:</label>
+                    <input type="text" id="addressInput" name="address" style="width:300px;" oninput="checkAddress()">
+                    <p id="addressText" style="margin-left: 10px;"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Maa:</label>
+                    <select id="country" name="country">
+                        <option value="choice">(Valitse maa)</option>
+                        <option value="earth">Maa</option>
+                    </select>
+                    <p id="countryText" style="margin-left: 10px;"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="postalInput">Postinumero:</label>
+                    <input type="text" id="postalInput" name="postal-code" style="width:200px;" oninput="checkPostalCode()">
+                    <p id="postalText" style="margin-left: 10px;"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailInput">Sähköposti:</label>
+                    <input type="email" id="emailInput" name="email" style="width:300px;" oninput="checkEmail()">
+                    <p id="emailText" style="margin-left: 10px;"></p>
+                </div>
+
+                <div class="form-group radio-group">
+                    <label>Sukupuoli:</label>
+                    <div class="radio-label-container">
+                      <input type="radio" id="male" name="gender" value="male">
+                      <label for="male">Mies</label>
+                    </div>
+                    <div class="radio-label-container">
+                      <input type="radio" id="female" name="gender" value="female">
+                      <label for="female">Nainen</label>
+                    </div>
+                    <p id="genderText" style="margin-left: 10px;"></p>
+                  </div>
+          
+                  <div class="form-group checkbox-group">
+                    <label>Kieli:</label>
+                    <div class="checkbox-label-container">
+                      <input type="checkbox" id="language1" name="language" value="Suomi" checked>
+                      <label for="language1">Suomi</label>
+                    </div>
+                    <div class="checkbox-label-container">
+                      <input type="checkbox" id="language2" name="language" value="Muu">
+                      <label for="language2">Muu kuin suomi</label>
+                    </div>
+                    <p id="languageText" style="margin-left: 10px;"></p>
+                  </div>
+
+                <div class="form-group textarea-group">
+                    <label for="additional">Lisätietoja:</label>
+                    <textarea id="additional" name="additional-info" style="width:300px; height:150px;"></textarea>
+                </div>
+
+                <button type="submit">Lähetä</button>
+                <p id="validateText" style="margin-left: 10px;"></p>
+
+            </div>
+        </form>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
